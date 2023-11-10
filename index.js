@@ -2,9 +2,20 @@ const express  = require("express");
 const cors = require('cors');
 const app = express();
 
-app.use(cors({
+const corsOpts = {
   origin: '*',
-}));
+
+  methods: [
+    'GET',
+    'POST',
+  ],
+
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
+  
+app.use(cors(corsOpts));
 app.use(express.json());
 
 app.post('/',require("./webScraper").scraper);
