@@ -242,5 +242,8 @@
   },
   "author": "",
   "license": "ISC",
-  "bin": "index.js"
+  "bin": "index.js",
+  "engines": {
+    "node": "18.18.0"
+  }
 }
