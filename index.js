@@ -1,19 +1,19 @@
 const express  = require("express");
-const cors = require('cors');
+// const cors = require('cors');
 const app = express();
 
-const corsOpts = {
-  origin: '*',
+// const corsOpts = {
+//   origin: '*',
 
-  methods: [
-    'GET',
-    'POST',
-  ],
+//   methods: [
+//     'GET',
+//     'POST',
+//   ],
 
-  allowedHeaders: [
-    'Content-Type',
-  ],
-};
+//   allowedHeaders: [
+//     'Content-Type',
+//   ],
+// };
 
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -23,7 +23,7 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use(cors(corsOpts));
+// app.use(cors(corsOpts));
 app.use(express.json());
 
 app.post('/',require("./webScraper").scraper);
