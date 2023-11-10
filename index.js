@@ -1,30 +1,22 @@
 const express  = require("express");
-// const cors = require('cors');
+const cors = require('cors');
 const app = express();
 
-// const corsOpts = {
-//   origin: '*',
+const corsOpts = {
+  origin: 'chrome-extension://ekiggfilkbfcibllleihcmkpkibcoddg/',
 
-//   methods: [
-//     'GET',
-//     'POST',
-//   ],
+  methods: [
+    'GET',
+    'POST',
+  ],
 
-//   allowedHeaders: [
-//     'Content-Type',
-//   ],
-// };
-
-app.use(function(req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', 'chrome-extension://ekiggfilkbfcibllleihcmkpkibcoddg/');
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-    next();
-});
+  allowedHeaders: [
+    'Content-Type',
+  ],
+};
 
 
-// app.use(cors(corsOpts));
+app.use(cors(corsOpts));
 app.use(express.json());
 
 app.post('/',require("./webScraper").scraper);
